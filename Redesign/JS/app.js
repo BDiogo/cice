@@ -3,6 +3,14 @@ $(document).ready(function(){
 	$("#js-hamb").click(function(){
 		$(".menu--full").toggleClass("menu--hidden");
 	});
+	$('.menu--full a').bind('click', function(event) {
+		$(".menu--full").toggleClass("menu--hidden");
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
 
 	$(window).scroll(function() {
     height = $(window).scrollTop();
