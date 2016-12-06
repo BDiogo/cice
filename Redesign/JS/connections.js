@@ -10,7 +10,7 @@ particleground(document.getElementById('particles'), {
   directionY:'center',   //center, right, left
   density: 8000,         //default:10000
   particleRadius: 4,     //default:7
-  lineWidth: 0.2,        //default:1
+  lineWidth: 0.3,        //default:1
   curvedLines: false,    //default:false
   proximity: 110,        //default:100
   parallax: true,        //default:true
