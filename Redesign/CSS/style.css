@@ -102,21 +102,25 @@ html, body {
   margin: 100px;
   margin-top: 100px; }
 
-.menu--full ul li {
+.menu--full ul li a{
   list-style: none;
   color: whitesmoke;
   font-size: 4.6em;
   font-weight: bold;
   padding-bottom: 30px;
-  opacity: 0.5; }
+  opacity: 0.5;
+  display: block }
 
-.menu--full ul li:hover {
+.menu--full ul li a:hover {
   cursor: pointer;
   opacity: 1; }
 
+
 .menu--hidden {
   right: -650px; }
-
+ .menu--full_active {
+  color:white !important;
+  opacity: 1 !important; }
 .footer {
   width: calc(100% - 100px);
   height: 150px;
