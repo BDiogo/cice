@@ -1,0 +1,324 @@
+$base-color: black;
+$second-color: whitesmoke;
+$base-sFont: 2.3em;
+$sencond-sFont: 2em;
+$mainTime: 0.35s;
+$secondTime: 0.15s;
+$heightHeader: 50px;
+$marginBorder:100px;
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+@mixin anims($transition...){
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin center ($perc){
+  position: relative;
+  top: $perc;
+  transform: translateY(-$perc);
+  -webkit-transform: translateY(-$perc);
+  -moz-transition: translateY(-$perc);
+  -ms-transition: translateY(-$perc);
+  -o-transition: translateY(-$perc);
+}
+
+
+@mixin transformOrigin($origin1, $origin2) {
+  -ms-transform-origin: $origin1 $origin2;
+  -webkit-transform-origin: $origin1 $origin2;
+  -moz-transform-origin: $origin1 $origin2;
+  -o-transform-origin: $origin1 $origin2;
+  transform-origin: $origin1 $origin2;
+}
+
+html, body{
+  height: 100vh;
+  width: 100%;
+  font-size: 66.5%;
+  font-family: "Montserrat",sans-serif;
+  font-weight: 100;
+  background: $base-color;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.position__abs__center{
+  position: absolute;
+  left: 0;
+  right:0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.symbol{
+  font-size: 0.6em;
+  padding:0 10px 0 10px;;
+}
+
+.underline{
+  border-bottom: 2px solid $second-color;
+  padding-bottom: 2px;
+}
+
+/*---*/
+.main__content{
+  width:100%;
+  height: 100%;
+}
+
+#particles{
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+  opacity: 0.45;
+}
+
+/*--HEADER--*/
+.header{
+  @include anims(background $mainTime ease-in-out, height $mainTime ease-in-out);
+  height: $heightHeader;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+.hamb{
+  width: 35px;
+  height: 30px;
+  position: fixed;
+  right: 30px;
+  top: 30px;
+}
+
+.hamb__element:nth-child(n){
+  width: 100%;
+  height: 4px;
+  margin-bottom: 10px;
+}
+
+.hamb:hover{
+  cursor: pointer;
+}
+
+.hamb--white{
+  background-color: $second-color;
+}
+
+.hamb--black{
+  background-color: $base-color;
+}
+
+.menu--full{
+  display: block;
+  width: 500px;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  position: fixed;
+  z-index: 2;
+  right: 0px;
+  -webkit-box-shadow: 0px 0px 43px -10px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 43px -10px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 43px -10px rgba(0,0,0,0.75);
+}
+
+.menu--full__logo{
+  width: 120px;
+  height: 20px;
+  background: url("../assets/logodefault.png");
+  background-size: cover;
+  margin: 100px;
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+
+.menu--full ul{
+  margin: 100px;
+  margin-top: 100px;
+}
+
+.menu--full ul li{
+  list-style: none;
+  color: $second-color;
+  font-size: $base-sFont*2;
+  font-weight: bold;
+  padding-bottom: 30px;
+  opacity: 0.5;
+}
+
+.menu--full ul li:hover{
+  cursor: pointer;
+  opacity: 1;
+}
+
+.menu--hidden{
+  right: -650px;
+}
+
+.footer{
+  width: 100%;
+  height: 150px;
+  background: $base-color;
+}
+
+.footer .wrapper__content{
+  height: 150px;
+}
+
+.footer .wrapper__content h1{
+  @include center(50%);
+  color: $second-color;
+  font-weight: bold;
+  font-size: $sencond-sFont;
+  line-height: $sencond-sFont/1.2;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  float: right;
+}
+
+/**--HERO--**/
+.hero{
+  width: 100%;
+  height: 100%;
+  background: $base-color;
+}
+
+.hero__content{
+  @include center(50%);
+  margin: auto;
+  width: 80%;
+  height: 100%;
+}
+
+.hero__content__logo{
+  @include center(50%);
+  width: 438px;
+  height: 418px;
+  margin: auto;
+  background: url("../assets/logov1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+
+.hero__side__text{
+  @include center(50%);
+  @include transformOrigin(50%,50%);
+  position: fixed;
+  font-size: $base-sFont*1.2;
+  font-weight: bold;
+  color: $second-color;
+}
+
+.text--black{
+  color: $base-color;
+  border-color: $base-color;
+}
+
+.side__text--left{
+  -ms-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+  left:-50px;;
+}
+
+.side__text--right{
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  right: -45px;
+}
+/*+--**/
+/**--WRAPPER--**/
+.wrapper{
+  width: 100%;
+  background-color: $second-color;
+  font-weight: bold;
+  color: $base-color;
+}
+
+.wrapper__content{
+  margin: auto;
+  width: calc(100% - #{$marginBorder});
+  display: inline-block;
+}
+
+.wrapper--white{
+  background: white;
+}
+
+.wrapper__content h1{
+  font-size: $base-sFont*3.6;
+  padding: 100px;
+}
+
+h1 .underline{
+  border-width: 4px;
+}
+
+.wrapper__content p{
+  max-width: 900px;
+  padding: 100px;
+  font-size: $base-sFont*1.6;
+  line-height: $base-sFont/1.7;
+}
+
+.wrapper__content__articles{
+  padding: 100px;
+  padding-top: 50px;
+}
+
+.content__article{
+  background: white;
+  display: inline-block;
+  width: 300px;
+  margin: 0 30px 30px 0;
+  -webkit-box-shadow: 0px 0px 43px -50px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 43px -50px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 43px -50px rgba(0,0,0,0.75);
+}
+
+.content__article:hover{
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 43px -35px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 43px -35px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 43px -35px rgba(0,0,0,0.75);
+}
+
+.article__image{
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background: $base-color;
+  margin: 30px auto;
+  background-image: url("../images/example.jpg");
+  background-size: cover;
+  opacity: 0.8;
+}
+
+.content__article h2{
+  font-size: $sencond-sFont;
+  padding: 30px;
+  padding-bottom: 15px;
+}
+
+.content__article h1{
+  font-size: $base-sFont*2;
+  line-height:$base-sFont/2;
+  margin: 0;
+  margin-bottom: 30px;
+  padding: 30px;
+  padding-top: 0;
+}
+/**-END WRAPPER-**/
